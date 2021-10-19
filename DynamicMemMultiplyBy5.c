@@ -10,14 +10,11 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#define ARRAY_SIZE 5
-#define MULTIPLIER 5
-
-void modify(uint16_t *pointerToDynamicArray);
+#include "DynamicMemMultiplyBy5.h"
 
 int main()
 {
-	uint16_t *pointerToDynamicArray;
+	//uint16_t *pointerToDynamicArray;
 	uint8_t counter = 0;
 
 	// syntax: ptr = (cast-type*) malloc(byte-size)
@@ -39,10 +36,12 @@ int main()
 }
 
 
-void modify(uint16_t *pointerToDynamicArray)
+uint8_t modify(uint16_t *pointerToDynamicArray)
 {
 	uint8_t counter = 0;
 
 	for(counter=0; counter < ARRAY_SIZE; counter++)
 	  *(pointerToDynamicArray+counter) *= MULTIPLIER;
+
+	return 1;
 }
