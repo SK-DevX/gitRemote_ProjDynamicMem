@@ -11,7 +11,7 @@ SOURCE=DynamicMemMultiplyBy5.c
 Output: $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) Output
 
-$(OBJS): $(SOURCE)
+DynamicMemMultiplyBy5.o: $(SOURCE)
 	$(CC) -c $(SOURCE)
 
 clean:

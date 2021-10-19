@@ -6,14 +6,14 @@
 * Version: 0.1
 */
 
-#include<stdio.h>
-#include<stdint.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 #define ARRAY_SIZE 5
 #define MULTIPLIER 5
 
-void modify(uint16_t *doublePointerToDynamicArray);
+void modify(uint16_t *pointerToDynamicArray);
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
 
 	// syntax: ptr = (cast-type*) malloc(byte-size)
 	// Example: ptr = (int*) malloc(100 * sizeof(int));
-	pointerToDynamicArray = (uint16_t *) malloc(ARRAY_SIZE * sizeof(uint16_t));
+	pointerToDynamicArray = (uint16_t *)malloc(ARRAY_SIZE*sizeof(uint16_t));
 
 	printf("Enter the 5 array emlements:\n");
 	for(counter = 0; counter < ARRAY_SIZE; counter++)
@@ -35,17 +35,14 @@ int main()
 		printf("  Element %d: %5d\n",counter+1, *(pointerToDynamicArray + counter));
 
 	free(pointerToDynamicArray);
-
 	return 0;
 }
 
 
-void modify(uint16_t *doublePointerToDynamicArray)
+void modify(uint16_t *pointerToDynamicArray)
 {
-
 	uint8_t counter = 0;
 
 	for(counter=0; counter < ARRAY_SIZE; counter++)
-	  *(doublePointerToDynamicArray+counter) *= MULTIPLIER;
-
+	  *(pointerToDynamicArray+counter) *= MULTIPLIER;
 }
