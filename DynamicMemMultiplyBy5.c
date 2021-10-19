@@ -11,8 +11,9 @@
 #include<stdlib.h>
 
 #define ARRAY_SIZE 5
+#define MULTIPLIER 5
 
-//void modify(int **doublePointerToDynamicArray);
+void modify(uint16_t *doublePointerToDynamicArray);
 
 int main()
 {
@@ -27,27 +28,24 @@ int main()
 	for(counter = 0; counter < ARRAY_SIZE; counter++)
 	  scanf("%hu", (pointerToDynamicArray + counter));
 
+	modify(pointerToDynamicArray);
+
 	printf("Array emenemnts are:\n");
 	for(counter = 0; counter < ARRAY_SIZE; counter++)
-		printf("Element %d: %d\n",counter+1, *(pointerToDynamicArray + counter));
-
-	//modify(pointerToDynamicArray);
+		printf("  Element %d: %5d\n",counter+1, *(pointerToDynamicArray + counter));
 
 	free(pointerToDynamicArray);
 
 	return 0;
 }
 
-/*
-void modify(int **doublePointerToDynamicArray)
+
+void modify(uint16_t *doublePointerToDynamicArray)
 {
 
-	uint8_t counter = ARRAY_SIZE;
+	uint8_t counter = 0;
 
-	while(counter--)
-	  **doublePointerToDynamicArray *= 5;
-	if(counter < 0)
-	{
-		free(*doublePointerToDynamicArray);
-	} 
-}*/
+	for(counter=0; counter < ARRAY_SIZE; counter++)
+	  *(doublePointerToDynamicArray+counter) *= MULTIPLIER;
+
+}
